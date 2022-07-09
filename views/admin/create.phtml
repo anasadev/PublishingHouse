@@ -1,0 +1,27 @@
+<?php $pagetitle="Dashboard - Créer un post"; ?>
+
+<h1>Créer un post</h1>
+
+<form action="/Projet/admin/posts/createPost" method="POST" enctype="multipart/form-data" class="form">
+  
+  <div class="form__box">
+    <label for="title">Titre de l'article</label>
+    <input type="text" name="title" id="title" required/>
+  </div>
+  <div class="form__box">
+    <label for="image">Image de l'article au format jpeg, jpg ou png</label>
+    <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png, image/jpeg, image/png" required/>
+  </div>
+  <div class="form__box">
+    <label for="alt_image">Description alternative de l'image</label>
+    <input type="text" name="alt_image" required/>
+  </div>
+  <div class="form__box">
+    <label for="content">Contenu de l'article</label>
+    <textarea name="content" id="content" rows="10" required></textarea>  
+  </div>
+  <div class="form__button">
+    <button type="submit">Créer article</button>
+  </div>
+  
+</form>

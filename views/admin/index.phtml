@@ -1,0 +1,31 @@
+<?php $pagetitle="Dashboard - Gérer les actus"; ?>
+
+<h1>Administration des actus</h1>
+
+<a href="/Projet/admin/posts/create" class="admin__button admin__button--create">Créer un nouvel article</a>
+
+<table class="admin__table">
+  <thead>
+    <tr>
+      <th>Titre</th>
+      <th>Publié le</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  <?php foreach($params['posts'] as $post): ?>
+    <tr>
+      <td><?= $post->getTitle() ?></td>
+      <td><?= $post->formatCreatedAt() ?></td>
+      <td>
+        <a href="/Projet/admin/posts/edit/<?= $post->getId() ?>" class="admin__button">Modifier</a>
+        <form action="/Projet/admin/posts/delete/<?= $post->getId() ?>" method="POST">
+          <div class="form__button--admin">
+            <button type="submit">Supprimer</button>
+          </div>
+        </form>
+      </td>
+    </tr>
+  <?php endforeach ?>
+  </tbody>
+</table>

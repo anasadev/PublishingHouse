@@ -1,0 +1,25 @@
+<?php $pagetitle="Dashboard - Éditer un post"; ?>
+
+<h1>Modifier le post : <?= strtoupper($params['post']->getTitle()) ?></h1>
+
+<form action="/Projet/admin/posts/update/<?= $params['post']->getId() ?>" method="POST" enctype="multipart/form-data" class="form">
+  <div class="form__box">
+    <label for="title">Titre de l'article</label>
+    <input type="text" name="title" required value="<?= $params['post']->getTitle() ?>" id="title"/>
+  </div>
+  <div class="form__box">
+    <label for="image">Image de l'article au format jpeg, jpg ou png</label>
+    <input type="file" name="image" required value="<?= $params['post']->getImage() ?>" id="image" accept=".jpg, .jpeg, .png, image/jpeg, image/png"/>
+  </div>
+  <div class="form__box">
+    <label for="alt_image">Description alternative de l'image</label>
+    <input type="text" name="alt_image" required value="<?= $params['post']->getAltImage() ?>" id="alt_image"/>
+  </div>
+  <div class="form__box">
+    <label for="content">Contenu de l'article</label>
+    <textarea name="content" id="content" required rows="10"><?= $params['post']->getContent() ?></textarea>  
+  </div>
+  <div class="form__button">
+    <button type="submit">Enregistrer</button>
+  </div>
+</form>

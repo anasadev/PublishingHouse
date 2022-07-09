@@ -1,0 +1,31 @@
+<?php $pagetitle="Dashboard - Login"; ?>
+
+<form action="/Projet/login" method="POST" class="form">
+  <h1>Je me connecte</h1>
+  <div class="form__body form__body--vertical form__login">
+    <div class="form__message">
+      <?php
+      if(isset($_SESSION['errors'])){
+          foreach($_SESSION['errors'] as $message){
+              echo $message;
+          }
+          unset($_SESSION['errors']);
+      }
+      ?>
+    </div>
+    <div class="form__box">
+      <label for="email">Votre email</label>
+      <input type="email" name="email" id="email" required pattern="^[a-z0-9._-]+@[a-z0-9.-]+\.[a-z]{2,}$"/>
+      <i class="fa-solid fa-envelope"></i>
+    </div>
+    <div class="form__box">
+      <label for="password">Votre mot de passe</label>
+      <input type="password" name="password" id="password" required/>
+      <i class="fa-solid fa-unlock-keyhole"></i>
+    </div>
+  </div>
+  <div class="form__button">
+    <button type="submit">Se connecter</button>
+  </div>
+</form>
+

@@ -1,0 +1,22 @@
+{
+    "name": "anasa/projet",
+    "description": "Projet final 3w Academy",
+    "autoload": {
+        "psr-4": {
+            "Router\\": "/home/analuisacarvalhodesa/sites/Projet/routes/",
+            "App\\": "/home/analuisacarvalhodesa/sites/Projet/app/",
+            "Database\\": "/home/analuisacarvalhodesa/sites/Projet/database/",
+            "Backoffice\\": "/home/analuisacarvalhodesa/sites/Projet/backoffice57924/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ana Sa",
+            "email": "anasadevweb@gmail.com"
+        }
+    ],
+    "require": {
+        
+    }
+}
+

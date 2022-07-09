@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?= $pagetitle; ?></title>
+    <link rel="stylesheet" href="<?= SCRIPTS . 'css' . DIRECTORY_SEPARATOR . 'app.css' ?>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/Projet/public/assets/favicon.png" />
+</head>
+
+<body>
+    <header>
+        <nav class="nav container">
+            <div class="nav__logo">
+                <img src="/Projet/public/assets/logo.png" alt="logo" class="nav__logo--image">
+            </div>
+            <ul class="nav__menu">
+                <?php if(!isset($_SESSION['connected'])): ?>
+                <li>
+                    <a href="/Projet">Accueil</a>
+                </li>
+                <li>
+                    <a href="/Projet/books">Nos livres</a>
+                </li>
+                <li>
+                    <a href="/Projet/authors">Nos auteurs</a>
+                </li>
+                <li>
+                    <a href="/Projet/contact">Contact</a>
+                </li>
+                <?php endif ?>
+                <?php if(isset($_SESSION['connected'])): ?>
+                <li>
+                    <a href="/Projet/admin/dashboard">Espace admin</a>
+                </li>
+                <li>
+                    <a href="/Projet/admin/posts">Gérer les actus</a>
+                </li>
+                <li>
+                    <a href="/Projet/logout">Déconnexion</a>
+                </li>
+                <?php endif ?>
+            </ul>
+        </nav>
+        <?php if(!isset($_SESSION['connected'])): ?>
+        <div class="searchbar">
+            <label for="search">Rechercher un livre : </label>
+            <input type="text" id="search"/>
+            <div id="target"></div>
+        </div>
+        <?php endif ?>
+    </header>
+    
+    <main class="container">
+    <?= $content ?>
+    </main>
+
+    <footer class="footer">
+        <a href="#"><i class="fa-brands fa-facebook-square"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-twitter-square"></i></a>
+    </footer>
+    <script src="/Projet/public/js/main.js"></script>
+</body>
+</html>

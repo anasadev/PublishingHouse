@@ -1,0 +1,18 @@
+<?php $pagetitle="Auteurs - Alias Éditions"; ?>
+
+<section class="booksauthors__index">
+  <h1>Nos auteurs</h1>
+  <?php foreach($params['authors'] as $author): ?>
+  <article>
+    <h2><?= $author->getFirstName() ?> <?= $author->getLastName() ?></h2>
+    <a href="/Projet/authors/<?= $author->getId() ?>">
+      <figure>
+        <img src="<?= $author->getPhoto() ?>" alt="<?= $author->getAltImage() ?>">
+        <figcaption>
+          <p><?= $author->getFirstName() ?> <?= $author->getLastName() ?></p>
+        </figcaption>
+      </figure>
+    </a>
+  </article>
+  <?php endforeach ?> 
+</section>

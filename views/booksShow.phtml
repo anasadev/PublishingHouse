@@ -1,0 +1,19 @@
+<?php $pagetitle="Livres - Alias Éditions"; ?>
+
+<article class="bookauthor__details">
+  <h1><?= $params['book']->getTitle() ?></h1>
+  <img src="<?= $params['book']->getImage() ?>" alt="<?= $params['book']->getAltImage() ?>">
+  <p><?= $params['book']->getDescription() ?></p>
+  <p>Année de publication : <?= $params['book']->formatCreatedAt() ?></p>
+  <p>Auteur(s) :</p>
+  <?php foreach($params['book']->getAuthors() as $author): ?>
+  <p><?= $author->getFirstName() ?> <?= $author->getLastName() ?></p> 
+  <?php endforeach ?>
+  <p>Format : <?= $params['book']->getBinding() ?></p>
+  <p>Prix : <?= $params['book']->getPrice() ?> €</p>
+  <p><?= $params['book']->getPages() ?> pages</p>
+  <p>Isbn : <?= $params['book']->getIsbn() ?></p>
+  <a href="/Projet/books" class="button">Revenir à Nos Livres</a>
+</article>
+
+  

@@ -1,0 +1,28 @@
+<?php $pagetitle="Accueil - Alias Éditions"; ?>
+
+<div class="slider">
+  <img src="/Projet/public/assets/image1.jpg" class="slider__img slider__img--active" alt="">
+  <img src="/Projet/public/assets/image2.jpg" class="slider__img" alt="">
+  <img src="/Projet/public/assets/image3.jpg" class="slider__img" alt="">
+  <div class="slider__next">
+    <i class="fa-solid fa-chevron-right"></i>
+  </div>
+  <div class="slider__previous">
+    <i class="fa-solid fa-chevron-left"></i>
+  </div>
+</div>
+
+<section class="news">
+  <h1>Actus</h1>
+  <?php foreach($params['posts'] as $key => $post): ?>
+  <article class="news__post news__post<?= $key ?>">
+    <h2><?= $post->getTitle() ?></h2>
+    <div class="news__div--image">
+      <img class="news__image" src="/Projet/public/assets/<?= $post->getImage() ?>" alt="<?= $post->getAltImage() ?>" >
+    </div>
+    <small class="news__date">Publié le <?= $post->formatCreatedAt() ?></small>
+    <p><?= $post->getContent() ?></p>
+  </article>
+  <?php endforeach ?> 
+</section>
+

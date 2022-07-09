@@ -1,0 +1,19 @@
+<?php $pagetitle="Dashboard"; ?>
+
+<div class="edit__message">
+    <?php
+    if(isset($_SESSION['errors'])){
+        foreach($_SESSION['errors'] as $message){
+            echo $message . "<p> Revenez en arrière pour réessayer.</p>";
+        }
+        unset($_SESSION['errors']);
+    } 
+    
+    if(isset($_SESSION['success'])){
+        foreach($_SESSION['success'] as $message){
+            echo $message;
+        }
+        unset($_SESSION['success']);
+    } 
+    ?>
+</div>

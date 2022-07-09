@@ -1,0 +1,50 @@
+<?php $pagetitle="Contact - Alias Éditions"; ?>
+
+<form action="/Projet/contact" method="POST" class="form">
+  <h1>J'envoie un message</h1>
+  <div class="form__message">
+  <?php
+  if(isset($_SESSION['errors'])){
+      foreach($_SESSION['errors'] as $error){
+          echo $error;
+      }
+      unset($_SESSION['errors']);
+  }
+  if(isset($_SESSION['success'])){
+      foreach($_SESSION['success'] as $success){
+          echo $success;
+      }
+      unset($_SESSION['success']);
+  }
+  ?>
+  </div>
+  <div class="form__body">
+    <div class="form__body--left">
+      <div class="form__box">
+        <label for="name">Votre nom</label>
+        <input type="text" name="name" id="name"  minlength="2" maxlength="100" />
+        <i class="fa-solid fa-user"></i>
+      </div>
+      <div class="form__box">
+        <label for="email">Votre email</label>
+        <input type="email" name="email" id="email"  maxlength="100" />
+        <i class="fa-solid fa-envelope"></i>
+      </div>
+    </div>
+    <div class="form__body--right">
+      <div class="form__box">
+        <label>Votre message</label>
+        <select name="question" id="demande_select" >
+          <option value="">Choisir l'objet de votre demande... </option>
+          <option value="Question générale">Question d'ordre général</option>
+          <option value="Message concernant une commande">Je suis lecteur : Message concernant vos livres</option>
+          <option value="Message concernant un manuscrit">Je suis écrivain : Message concernant mon manuscrit</option>
+        </select>
+        <textarea id="message_content" name="message_content" rows="5"  minlength="60" maxlength="1200"></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="form__button">
+    <button type="submit">Valider</button>
+  </div>
+</form>

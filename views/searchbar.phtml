@@ -1,0 +1,11 @@
+<div class="searchbar">
+  <p><?= $text ?> correspondent à votre recherche</p>
+  <?php foreach($books as $book): ?>
+  <a href="/Projet/books/<?= $book['id'] ?>">
+    <article>
+        <h3><?= ($book['title']) ?></h3>
+        <span><?= ($book['description']) ?></span>
+    </article>
+  </a>
+  <?php endforeach; ?>
+</div>

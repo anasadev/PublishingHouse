@@ -1,0 +1,23 @@
+<?php $pagetitle="Auteurs - Alias Éditions"; ?>
+
+<article class="bookauthor__details">
+  <h1><?= $params['author']->getFirstName() ?> <?= $params['author']->getLastName() ?></h1>
+  <img src="<?= $params['author']->getPhoto() ?>" alt="<?= $params['author']->getAltImage() ?>">
+  <p><?= $params['author']->getBio() ?></p>
+  <div class="booksauthors__index">
+    <h2>Les oeuvres de <?= $params['author']->getFirstName() ?> <?= $params['author']->getLastName() ?> publiées chez Alias</h2>
+    <?php foreach($params['author']->getBooks() as $book): ?>
+    <article>
+      <a href="/Projet/books/<?= $book->getId() ?>">
+        <figure>
+          <img src="<?= $book->getImage() ?>" alt="<?= $book->getAltImage() ?>">
+          <figcaption>
+            <p><?= $book->getTitle() ?></p>
+          </figcaption>
+        </figure>
+      </a>
+    </article>
+    <?php endforeach ?> 
+  </div>
+  <a href="/Projet/authors" class="button">Revenir en arrière</a>
+</article>

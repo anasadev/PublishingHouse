@@ -1,0 +1,19 @@
+<?php $pagetitle="Livres - Alias Éditions"; ?>
+
+<section class="booksauthors__index">
+  <h1>Nos livres</h1>
+  <?php foreach($params['books'] as $book): ?>
+  <article>
+    <h2><?= $book->getTitle() ?></h2>
+    <a href="/Projet/books/<?= $book->getId() ?>">
+      <figure>
+        <img src="<?= $book->getImage() ?>" alt="<?= $book->getAltImage() ?>">
+        <figcaption>
+          <p><?= $book->getExcerpt() ?></p>
+        </figcaption>
+      </figure>
+    </a>
+  </article>
+  <?php endforeach ?> 
+</section>
+
